@@ -1,0 +1,5 @@
+{
+  "name": "Copy of Synthetica - AI-Powered News Authenticator",
+  "description": "A modern, AI-powered web application to detect fake news. Paste a news URL/text or upload an image to get an instant authenticity analysis with a confidence score, powered by Gemini.",
+  "requestFramePermissions": []
+}

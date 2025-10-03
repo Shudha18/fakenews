@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Synthetica 2.0 - AI News Authenticator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        darkMode: 'class', // Enable class-based dark mode
+        theme: {
+          extend: {
+            fontFamily: {
+              mono: ['"Roboto Mono"', 'monospace'],
+            },
+            colors: {
+              // Light Theme Colors
+              'light-bg': '#f8f9fa',
+              'light-surface': '#ffffff',
+              'light-border': '#dee2e6',
+              'light-text': '#212529',
+              'light-text-secondary': '#6c757d',
+              'light-cyan': '#0d9488',
+              'light-magenta': '#c026d3',
+              'light-green': '#198754',
+              'light-red': '#dc3545',
+              'light-yellow': '#ffc107',
+              'light-orange': '#fd7e14',
+
+              // Dark Theme (Sleek/Tech) Colors
+              'cyber-bg': '#0F172A', // slate-900
+              'cyber-surface': '#1E293B', // slate-800
+              'cyber-border': '#334155', // slate-700
+              'cyber-text': '#F1F5F9', // slate-100
+              'cyber-text-secondary': '#94A3B8', // slate-400
+              'cyber-cyan': '#22D3EE', // cyan-400
+              'cyber-magenta': '#C084FC', // purple-400
+              'cyber-green': '#4ADE80', // green-400
+              'cyber-red': '#FB7185', // rose-400
+              'cyber-yellow': '#FACC15', // yellow-400
+              'cyber-orange': '#FB923C', // orange-400
+            },
+            boxShadow: {
+              'cyber-glow-cyan': '0 0 15px #22D3EE, 0 0 25px #22D3EE',
+              'cyber-glow-green': '0 0 15px #4ADE80, 0 0 20px #4ADE80',
+              'cyber-glow-red': '0 0 15px #FB7185, 0 0 20px #FB7185',
+              'cyber-glow-yellow': '0 0 15px #FACC15, 0 0 20px #FACC15',
+            },
+            animation: {
+              'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+              'stars-pulse': 'starsPulse 50s infinite linear',
+              'hologram-shimmer': 'hologramShimmer 4s infinite linear',
+              'text-focus-in': 'textFocusIn 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both',
+              'radial-progress': 'radial-progress 1s ease-out forwards',
+              'slide-in-bottom': 'slide-in-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both',
+              'shrink-width': 'shrink-width 5s linear forwards',
+              'scan-line-anim': 'scan-line 2.5s infinite ease-in-out',
+              'gradient-shift': 'gradient-shift 4s ease-in-out infinite',
+              'glitch-1': 'glitch-1 4s linear infinite alternate',
+              'glitch-2': 'glitch-2 3s linear infinite alternate-reverse',
+            },
+            keyframes: {
+              fadeInUp: {
+                '0%': { opacity: '0', transform: 'translateY(20px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+              },
+              starsPulse: {
+                '0%': { transform: 'scale(1)', opacity: '0.1' },
+                '50%': { transform: 'scale(1.1)', opacity: '0.3' },
+                '100%': { transform: 'scale(1)', opacity: '0.1' },
+              },
+              hologramShimmer: {
+                '0%': { backgroundPosition: '200% 0' },
+                '100%': { backgroundPosition: '-200% 0' },
+              },
+              textFocusIn: {
+                '0%': { filter: 'blur(12px)', opacity: '0' },
+                '100%': { filter: 'blur(0px)', opacity: '1' },
+              },
+              'radial-progress': {
+                '0%': { strokeDashoffset: '251.2' },
+                '100%': { strokeDashoffset: 'var(--progress-offset)' },
+              },
+              'slide-in-bottom': {
+                '0%': { transform: 'translateY(100px)', opacity: '0' },
+                '100%': { transform: 'translateY(0)', opacity: '1' },
+              },
+              'shrink-width': {
+                '0%': { width: '100%' },
+                '100%': { width: '0%' },
+              },
+              'scan-line': {
+                '0%': { top: '0%', opacity: '0.8' },
+                '50%': { top: '98%', opacity: '1' },
+                '100%': { top: '0%', opacity: '0.8' },
+              },
+              'gradient-shift': {
+                '0%, 100%': { 'background-position': '0% 50%' },
+                '50%': { 'background-position': '100% 50%' },
+              },
+               'glitch-1': {
+                '0%, 100%': { transform: 'translate(0)', clipPath: 'polygon(0 0, 100% 0, 100% 5%, 0 5%)' },
+                '10%': { clipPath: 'polygon(0 40%, 100% 40%, 100% 45%, 0 45%)' },
+                '20%': { transform: 'translate(-3px, 2px)', clipPath: 'polygon(0 80%, 100% 80%, 100% 85%, 0 85%)' },
+                '40%': { transform: 'translate(3px, -2px)', clipPath: 'polygon(0 20%, 100% 20%, 100% 25%, 0 25%)' },
+                '60%': { transform: 'translate(-3px, 2px)' },
+                '80%': { transform: 'translate(0)', clipPath: 'polygon(0 60%, 100% 60%, 100% 65%, 0 65%)' },
+              },
+              'glitch-2': {
+                '0%, 100%': { transform: 'translate(0)', clipPath: 'polygon(0 95%, 100% 95%, 100% 100%, 0 100%)' },
+                '10%': { clipPath: 'polygon(0 30%, 100% 30%, 100% 35%, 0 35%)' },
+                '20%': { transform: 'translate(3px, -2px)', clipPath: 'polygon(0 70%, 100% 70%, 100% 75%, 0 75%)' },
+                '40%': { transform: 'translate(-3px, 2px)', clipPath: 'polygon(0 10%, 100% 10%, 100% 15%, 0 15%)' },
+                '60%': { transform: 'translate(3px, -2px)' },
+                '80%': { transform: 'translate(0)', clipPath: 'polygon(0 50%, 100% 50%, 100% 55%, 0 55%)' },
+              },
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      .hologram-button {
+        position: relative;
+        overflow: hidden;
+        background-image: linear-gradient(90deg, transparent 50%, rgba(0, 246, 255, 0.5) 50%);
+        background-size: 200% 100%;
+        transition: background-position 0.5s ease-out;
+      }
+      .hologram-button:hover {
+        background-position: 0 0;
+      }
+
+      /* Animated Starfield Background */
+      #stars1, #stars2, #stars3 {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-repeat: repeat;
+        background-position: center;
+      }
+      #stars1 {
+        background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="4" height="4"><circle cx="1" cy="1" r="0.5" fill="rgba(200, 200, 255, 0.5)"/></svg>');
+        animation: stars-pulse 60s infinite linear;
+      }
+       #stars2 {
+        background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="8" height="8"><circle cx="3" cy="5" r="0.7" fill="rgba(200, 200, 255, 0.4)"/></svg>');
+        animation: stars-pulse 40s infinite linear reverse;
+      }
+      
+      /* New Glitch Text Effect Styles */
+      .glitch-text {
+        position: relative;
+      }
+      .glitch-text > span {
+        position: relative;
+        z-index: 1;
+      }
+      .glitch-text::before,
+      .glitch-text::after {
+        content: attr(data-text);
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        color: transparent;
+        background-clip: text;
+        -webkit-background-clip: text;
+        z-index: 0;
+        mix-blend-mode: screen; /* Blends the colors of the layers */
+        filter: brightness(1.2);
+      }
+      .glitch-text::before {
+        background-image: linear-gradient(90deg, #C084FC, #C084FC);
+        animation: glitch-1 4s linear infinite;
+      }
+      .glitch-text::after {
+        background-image: linear-gradient(90deg, #22D3EE, #22D3EE);
+        animation: glitch-2 3s linear infinite reverse;
+      }
+
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.1.1/",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.20.0",
+    "react/": "https://aistudiocdn.com/react@^19.1.1/",
+    "react": "https://aistudiocdn.com/react@^19.1.1",
+    "jspdf": "https://aistudiocdn.com/jspdf@^2.5.1",
+    "html2canvas": "https://aistudiocdn.com/html2canvas@^1.4.1",
+    "express": "https://aistudiocdn.com/express@^5.1.0",
+    "dotenv": "https://aistudiocdn.com/dotenv@^17.2.3",
+    "cors": "https://aistudiocdn.com/cors@^2.8.5",
+    "process": "https://aistudiocdn.com/process@^0.11.10",
+    "mongoose": "https://aistudiocdn.com/mongoose@^8.19.0",
+    "jsonwebtoken": "https://aistudiocdn.com/jsonwebtoken@^9.0.2",
+    "bcryptjs": "https://aistudiocdn.com/bcryptjs@^3.0.2",
+    "path": "https://aistudiocdn.com/path@^0.12.7",
+    "url": "https://aistudiocdn.com/url@^0.11.4"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body class="font-mono bg-light-bg dark:bg-cyber-bg">
+    <div class="fixed top-0 left-0 w-full h-full -z-10 dark:opacity-100 opacity-0 transition-opacity duration-500">
+      <div id="stars1"></div>
+      <div id="stars2"></div>
+    </div>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
