@@ -105,7 +105,7 @@ const AppContent: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen text-light-text dark:text-cyber-text flex flex-col items-center p-4 sm:p-6 lg:p-8 transition-colors duration-300">
+<div className="min-h-screen bg-white dark:bg-gray-950 text-light-text dark:text-cyber-text flex flex-col items-center p-4 sm:p-6 lg:p-8 transition-colors duration-300">
       <div className="w-full max-w-5xl mx-auto flex-grow">
         <Header page={page} setPage={setPage} theme={theme} toggleTheme={toggleTheme} />
         <main className="mt-8 sm:mt-16 w-full">
